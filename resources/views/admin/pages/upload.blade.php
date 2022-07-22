@@ -5,7 +5,7 @@
     <div class="container">
         <div class="row d-flex align-items-center" style="height: 100vh">
             <div class="col-md-12 d-flex justify-content-center">
-                <form action="{{ route('form.submit') }}" method="post" enctype="multipart/form-data" class="border rounded border-light p-4 w-50 text-center">
+                <form action="{{ route('form.read') }}" method="post" enctype="multipart/form-data" class="border rounded border-light p-4 w-50 text-center">
                     @csrf 
                     <input type="file" name="file_to_upload" class="form-control" />
                     @if($errors->has('file_to_upload'))

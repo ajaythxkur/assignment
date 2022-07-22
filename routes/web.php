@@ -17,4 +17,5 @@ Route::controller(AdminController::class)->group(function(){
     Route::get('/','show')->name('form.show');
     Route::post('/upload','doUpload')->name('form.submit');
     Route::get('/showExisted','showExisted');
+    Route::post('/read','doRead')->name('form.read');
 });

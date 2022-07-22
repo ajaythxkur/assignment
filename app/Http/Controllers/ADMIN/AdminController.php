@@ -5,6 +5,7 @@ namespace App\Http\Controllers\ADMIN;
 use App\Http\Controllers\Controller;
 use Illuminate\Http\Request;
 use App\Http\Requests\UploadRequest;
+use App\Http\Requests\ReadRequest;
 use App\Models\Assignment;
 
 
@@ -14,6 +15,7 @@ class AdminController extends Controller
     public function show(){
         return view('admin.pages.upload');
     }
+    
     public function showExisted(){
         $getData = Assignment::all();
         if(count($getData)>0){
@@ -49,5 +51,9 @@ class AdminController extends Controller
                 $upload = Assignment::create($data);
             }
             return redirect('/showExisted');
+    }
+    public function doRead(ReadRequest $request){
+        $incoming = $request->getFile();
+        return view('admin.pages.read', compact('incoming'));
     }
 }
