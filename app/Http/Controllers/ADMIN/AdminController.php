@@ -54,6 +54,8 @@ class AdminController extends Controller
     }
     public function doRead(ReadRequest $request){
         $incoming = $request->getFile();
-        return view('admin.pages.read', compact('incoming'));
+        echo '<pre>';
+        print_r($incoming);
+        // return view('admin.pages.read', compact('incoming'));
     }
 }
