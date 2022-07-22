@@ -1,7 +1,7 @@
 <?php
 
 use Illuminate\Support\Facades\Route;
-
+use App\Http\Controllers\ADMIN\AdminController;
 /*
 |--------------------------------------------------------------------------
 | Web Routes
@@ -13,6 +13,8 @@ use Illuminate\Support\Facades\Route;
 |
 */
 
-Route::get('/', function () {
-    return view('welcome');
+Route::controller(AdminController::class)->group(function(){
+    Route::get('/','show')->name('form.show');
+    Route::post('/upload','doUpload')->name('form.submit');
+    Route::get('/showExisted','showExisted');
 });
